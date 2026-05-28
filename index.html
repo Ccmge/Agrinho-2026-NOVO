@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agronomia Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Agronomia Sustentável</h1>
+        <p>Práticas agrícolas conscientes para proteger o solo, a água e o meio ambiente.</p>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>O que é Agronomia Sustentável?</h2>
+            <p>A agronomia sustentável busca equilibrar produção agrícola com conservação ambiental, usando técnicas que preservam recursos naturais.</p>
+        </section>
+
+        <section id="praticas">
+            <h2>Práticas Sustentáveis</h2>
+            <ul>
+                <li>Rotação de culturas para manter a fertilidade do solo.</li>
+                <li>Uso de adubação orgânica ao invés de fertilizantes químicos.</li>
+                <li>Irrigação eficiente, como gotejamento, para economizar água.</li>
+                <li>Controle integrado de pragas para reduzir pesticidas.</li>
+                <li>Plantio direto e cobertura do solo para evitar erosão.</li>
+            </ul>
+        </section>
+
+        <section id="interativo">
+            <h2>Descubra uma recomendação</h2>
+            <label for="cultura">Escolha uma cultura:</label>
+            <select id="cultura">
+                <option value="milho">Milho</option>
+                <option value="soja">Soja</option>
+                <option value="trigo">Trigo</option>
+            </select>
+            <button onclick="recomendar()">Recomendar</button>
+
+            <div id="resultado"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Agronomia Sustentável</p>
+    </footer>
+
+    <script>
+        const praticas = {
+            milho: [
+                "Irrigação eficiente com gotejamento.",
+                "Rotação de culturas para melhorar o solo.",
+                "Uso de adubação orgânica."
+            ],
+            soja: [
+                "Adicionar matéria orgânica ao solo arenoso.",
+                "Adubação orgânica recomendada.",
+                "Controle integrado de pragas."
+            ],
+            trigo: [
+                "Irrigação eficiente para solos mistos.",
+                "Manejo equilibrado do solo.",
+                "Uso consciente de fertilizantes."
+            ]
+        };
+
+        function recomendar() {
+            const cultura = document.getElementById("cultura").value;
+            const lista = praticas[cultura];
+            const resultado = document.getElementById("resultado");
+
+            resultado.innerHTML = `<h3>Recomendações para ${cultura}:</h3><ul>${lista.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        }
+    </script>
+</body>
+</html>
